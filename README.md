@@ -1,6 +1,6 @@
 # 企业级 AI 赋能测试平台
 
-从需求文档到接口压测的全链路测试平台。支持 AI 辅助解析、用例生成、契约检查、压测分析与 Allure 报告，配套本地 Mock 商城 API，可直接联调。
+从需求文档到接口压测的全链路测试平台。支持 AI 辅助解析、用例生成、契约检查、压测分析与 Allure 报告。
 
 ## 技术栈
 
@@ -137,16 +137,9 @@ cp .env.example .env
 
 ## 启动步骤
 
-完整功能需 **开 3 个终端**，分别启动 Mock、后端、前端（顺序不限，但建议先 Mock 和后端）。
+完整功能需 **开 2 个终端**，分别启动 Mock、后端、前端（顺序不限，但建议先 Mock 和后端）。
 
-**终端 1 — Mock 商城 API（9000）**  模块接口！！！
-
-```bash
-cd mock-shop-api
-python app.py
-```
-
-**终端 2 — Django 后端（8000）**
+**终端 1 — Django 后端（8000）**
 
 ```bash
 cd backend
@@ -154,7 +147,7 @@ cd backend
 python manage.py runserver 127.0.0.1:8000
 ```
 
-**终端 3 — Vue 前端（5173）**
+**终端 2 — Vue 前端（5173）**
 
 ```bash
 cd frontend
@@ -167,23 +160,11 @@ npm run dev
 |------|------|
 | **平台首页（从这里进）** | http://127.0.0.1:5173 |
 | 后端 API | http://127.0.0.1:8000/api/ |
-| Mock API | http://127.0.0.1:9000/v1 |
-| Mock 接口清单 | http://127.0.0.1:9000/v1/_endpoints |
 
-### 测试账号与全局变量
-
-| 项目 | 值 |
-|------|-----|
-| Mock 用户名 | `demo_user` |
-| Mock 密码 | `Pass@123456` |
-| 全局变量示例 | `{"baseUrl":"http://127.0.0.1:9000/v1"}` |
-
-登录接口：`POST /v1/auth/login`，后续接口使用返回的 `access_token`（`Authorization: Bearer <token>`）。
 
 ### 启动失败常见原因
 
 - **前端页面空白 / 接口 404**：后端 8000 未启动，或前端未用 `npm run dev`
-- **接口自动化连不上**：Mock 9000 未启动，或全局变量 `baseUrl` 未配置
 - **`npm install` 报错**：检查 Node 版本 ≥ 18，可尝试删除 `node_modules` 后重装：
   ```bash
   cd frontend
@@ -198,12 +179,9 @@ npm run dev
 
 ```bash
 # 终端 1
-cd mock-shop-api && python app.py
-
-# 终端 2
 cd backend && python manage.py runserver 127.0.0.1:8000
 
-# 终端 3
+# 终端 2
 cd frontend && npm run dev
 ```
 
@@ -254,9 +232,6 @@ ai-test-platform/
 │       ├── components/         # 公共组件（接口表单、分析工作台等）
 │       ├── composables/        # 会话持久化等
 │       └── api/                # 接口封装
-├── mock-shop-api/              # 本地可调用 Mock 服务
-├── samples/
-│   └── mock-api-doc.md         # 与 Mock 对齐的接口文档样例
 └── README.md
 ```
 
@@ -313,7 +288,6 @@ python manage.py migrate            # 数据库迁移
 |------|------|
 | 前端 | http://127.0.0.1:5173 |
 | 后端 API | http://127.0.0.1:8000/api/ |
-| Mock API | http://127.0.0.1:9000/v1 |
 
 ## License
 
