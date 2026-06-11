@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  height: 100%;
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: #0f1419;
+  color: #e8eaed;
+}
+
+.page-card {
+  background: #1a2332;
+  border: 1px solid #2a3544;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.el-table {
+  --el-table-bg-color: #1a2332;
+  --el-table-tr-bg-color: #1a2332;
+  --el-table-header-bg-color: #141c28;
+  --el-table-row-hover-bg-color: #243044;
+  --el-table-row-striped-bg-color: #141c28;
+  --el-table-border-color: #2a3544;
+  --el-table-text-color: #e8eaed;
+  --el-table-header-text-color: #9aa0a6;
+  background-color: transparent !important;
+}
+
+.el-table tr,
+.el-table th.el-table__cell,
+.el-table td.el-table__cell {
+  background-color: inherit;
+}
+
+.el-table__body tr.el-table__row--striped td.el-table__cell {
+  background-color: #141c28 !important;
+}
+
+.el-table__fixed-right,
+.el-table__fixed-right-patch,
+.el-table__fixed-left,
+.el-table__fixed-left-patch {
+  background-color: #1a2332 !important;
+}
+
+.el-dialog {
+  --el-dialog-bg-color: #1a2332;
+  --el-dialog-border-radius: 12px;
+}
+
+.el-form-item__label {
+  color: #9aa0a6 !important;
+}
+
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper {
+  background: #141c28 !important;
+  box-shadow: 0 0 0 1px #2a3544 inset !important;
+}
+
+.el-input__inner,
+.el-textarea__inner {
+  color: #e8eaed !important;
+}
